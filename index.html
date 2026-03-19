@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أخبار الزمالك | القلعة البيضاء</title>
+    <meta name="description" content="أخر أخبار نادي الزمالك المصري، نتائج المباريات، وتغطية حصرية.">
+    <!-- Favicon (Zamalek Logo) -->
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/en/0/04/ZamalekSC.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Loading Animation -->
+    <div id="loader" class="loader-wrapper">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/en/0/04/ZamalekSC.png" alt="Zamalek Logo">
+                <span>أخبار الزمالك</span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="#news">الأخبار</a></li>
+                <li><a href="dashboard.html" id="dashLink">إضافة خبر</a></li>
+                <li><a href="auth.html" id="authBtn">تسجيل دخول</a></li>
+            </ul>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="بحث عن خبر...">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>نبض ميت عقبة في مكان واحد</h1>
+            <p>تغطية شاملة لجميع أخبار الملكي على مدار الساعة</p>
+        </section>
+
+        <div class="container">
+            <!-- Match Results -->
+            <section class="matches">
+                <h2 class="section-title">آخر المباريات</h2>
+                <div class="results-table">
+                    <div class="match-row">
+                        <span>الزمالك</span>
+                        <span class="score">2 - 0</span>
+                        <span>الأهلي</span>
+                        <span class="status">انتهت</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- News Section -->
+            <section id="news" class="news-section">
+                <h2 class="section-title">آخر الأخبار</h2>
+                <div class="news-grid" id="newsGrid">
+                    <!-- Dynamic Content via JS -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; أخبار الزمالك 2024</p>
+    </footer>
+
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
