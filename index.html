@@ -1,87 +1,352 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أخبار الزمالك | القلعة البيضاء</title>
-    <meta name="description" content="أخر أخبار نادي الزمالك المصري، نتائج المباريات، وتغطية حصرية.">
-    <!-- Favicon (Zamalek Logo) -->
-    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/en/0/04/ZamalekSC.png" type="image/png">
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مكتبة البرومبتات ✨</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --card: #16161f;
+    --border: #2a2a3a;
+    --accent: #7c3aed;
+    --accent2: #ec4899;
+    --text: #f0f0f8;
+    --muted: #8888aa;
+    --glow: 0 0 30px rgba(124,58,237,0.3);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:'Cairo',sans-serif; min-height:100vh; overflow-x:hidden; }
+  body::before { content:''; position:fixed; inset:0; background: radial-gradient(ellipse 80% 50% at 20% 20%,rgba(124,58,237,0.12) 0%,transparent 60%), radial-gradient(ellipse 60% 40% at 80% 80%,rgba(6,182,212,0.08) 0%,transparent 60%); pointer-events:none; z-index:0; }
+  .container { max-width:1300px; margin:0 auto; padding:0 20px; position:relative; z-index:1; }
+  header { padding:40px 0 30px; text-align:center; }
+  .badge { display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,rgba(124,58,237,0.2),rgba(236,72,153,0.2)); border:1px solid rgba(124,58,237,0.4); border-radius:50px; padding:6px 18px; font-size:13px; color:#c4b5fd; margin-bottom:20px; }
+  h1 { font-size:clamp(2rem,5vw,3.5rem); font-weight:900; margin-bottom:12px; background:linear-gradient(135deg,#fff 0%,#c4b5fd 40%,#ec4899 80%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  .subtitle { color:var(--muted); font-size:16px; margin-bottom:30px; }
+  .stats { display:flex; justify-content:center; gap:30px; flex-wrap:wrap; margin-bottom:40px; }
+  .stat-num { font-size:24px; font-weight:900; background:linear-gradient(135deg,var(--accent),var(--accent2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  .stat-label { font-size:12px; color:var(--muted); }
+  .search-wrap { display:flex; justify-content:center; margin-bottom:30px; }
+  .search-box { background:var(--card); border:1px solid var(--border); border-radius:50px; padding:12px 24px; color:var(--text); font-family:'Cairo',sans-serif; font-size:15px; width:100%; max-width:500px; outline:none; transition:border-color 0.2s; text-align:right; }
+  .search-box:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(124,58,237,0.15); }
+  .search-box::placeholder { color:var(--muted); }
+  .filters { display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-bottom:40px; }
+  .filter-btn { background:var(--card); border:1px solid var(--border); color:var(--muted); padding:8px 20px; border-radius:50px; cursor:pointer; font-family:'Cairo',sans-serif; font-size:14px; transition:all 0.2s; }
+  .filter-btn:hover,.filter-btn.active { background:linear-gradient(135deg,var(--accent),var(--accent2)); border-color:transparent; color:white; box-shadow:var(--glow); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:24px; margin-bottom:60px; }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:20px; overflow:hidden; transition:transform 0.3s,box-shadow 0.3s,border-color 0.3s; animation:fadeUp 0.5s ease both; }
+  .card:hover { transform:translateY(-6px); box-shadow:0 20px 50px rgba(0,0,0,0.5),var(--glow); border-color:rgba(124,58,237,0.4); }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+  .img-container { position:relative; overflow:hidden; }
+  .card-img { width:100%; aspect-ratio:1/1; object-fit:cover; display:block; cursor:pointer; }
+  .img-placeholder { width:100%; aspect-ratio:1/1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; background:linear-gradient(135deg,#1a1a2e,#16213e); color:var(--muted); font-size:13px; }
+  .img-placeholder .icon { font-size:36px; }
+  .gen-btn { position:absolute; bottom:12px; left:50%; transform:translateX(-50%); background:linear-gradient(135deg,var(--accent),var(--accent2)); color:white; border:none; border-radius:50px; padding:8px 20px; font-family:'Cairo',sans-serif; font-size:13px; font-weight:700; cursor:pointer; white-space:nowrap; transition:opacity 0.2s,transform 0.2s; box-shadow:0 4px 20px rgba(124,58,237,0.5); }
+  .gen-btn:hover { opacity:0.9; transform:translateX(-50%) scale(1.05); }
+  .gen-btn:disabled { opacity:0.5; cursor:not-allowed; }
+  .card-body { padding:18px; }
+  .card-cat { display:inline-flex; align-items:center; gap:5px; background:rgba(124,58,237,0.15); border:1px solid rgba(124,58,237,0.3); color:#c4b5fd; font-size:11px; padding:3px 12px; border-radius:50px; margin-bottom:10px; }
+  .card-prompt { font-size:12px; color:var(--muted); line-height:1.7; margin-bottom:14px; direction:ltr; text-align:left; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+  .card-actions { display:flex; gap:8px; }
+  .copy-btn { flex:1; background:rgba(255,255,255,0.05); border:1px solid var(--border); color:var(--text); padding:8px; border-radius:10px; cursor:pointer; font-family:'Cairo',sans-serif; font-size:13px; transition:all 0.2s; }
+  .copy-btn:hover { background:rgba(124,58,237,0.2); border-color:var(--accent); }
+  .copy-btn.copied { background:rgba(16,185,129,0.2); border-color:#10b981; color:#10b981; }
+  .spinner { width:28px; height:28px; border:3px solid rgba(124,58,237,0.3); border-top-color:var(--accent); border-radius:50%; animation:spin 0.8s linear infinite; }
+  @keyframes spin { to{transform:rotate(360deg)} }
+  .modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); backdrop-filter:blur(10px); z-index:100; align-items:center; justify-content:center; padding:20px; }
+  .modal-overlay.open { display:flex; }
+  .modal { background:var(--card); border:1px solid var(--border); border-radius:24px; padding:30px; max-width:600px; width:100%; max-height:90vh; overflow-y:auto; }
+  .modal img { width:100%; border-radius:16px; margin-bottom:20px; }
+  .modal-prompt { background:rgba(0,0,0,0.3); border:1px solid var(--border); border-radius:12px; padding:16px; font-size:13px; direction:ltr; text-align:left; line-height:1.8; color:var(--muted); margin-bottom:20px; }
+  .modal-close { background:rgba(255,255,255,0.1); border:none; color:white; width:36px; height:36px; border-radius:50%; cursor:pointer; font-size:18px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .modal-title { font-size:18px; font-weight:700; }
+  .empty { grid-column:1/-1; text-align:center; padding:80px 20px; color:var(--muted); }
+  .empty .big { font-size:48px; margin-bottom:16px; }
+  .toast { position:fixed; bottom:30px; left:50%; transform:translateX(-50%) translateY(100px); background:linear-gradient(135deg,var(--accent),var(--accent2)); color:white; padding:12px 28px; border-radius:50px; font-size:14px; font-weight:700; z-index:999; transition:transform 0.3s; box-shadow:0 8px 30px rgba(124,58,237,0.5); }
+  .toast.show { transform:translateX(-50%) translateY(0); }
+  @media(max-width:600px){ .grid{grid-template-columns:1fr} .stats{gap:20px} }
+</style>
 </head>
 <body>
-
-    <!-- Loading Animation -->
-    <div id="loader" class="loader-wrapper">
-        <div class="loader"></div>
+<div class="container">
+  <header>
+    <div class="badge">⚡ Stable Diffusion Prompts</div>
+    <h1>مكتبة البرومبتات</h1>
+    <p class="subtitle">برومبتات جاهزة لتوليد صور احترافية</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-num" id="totalCount">0</div><div class="stat-label">برومبت</div></div>
+      <div class="stat"><div class="stat-num">8</div><div class="stat-label">تصنيف</div></div>
+      <div class="stat"><div class="stat-num">SD</div><div class="stat-label">Stable Diffusion</div></div>
     </div>
+  </header>
+  <div class="search-wrap">
+    <input class="search-box" type="text" id="searchInput" placeholder="🔍  ابحث عن برومبت...">
+  </div>
+  <div class="filters" id="filters"></div>
+  <div class="grid" id="grid"></div>
+</div>
 
-    <!-- Header -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <img src="https://upload.wikimedia.org/wikipedia/en/0/04/ZamalekSC.png" alt="Zamalek Logo">
-                <span>أخبار الزمالك</span>
-            </div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">الرئيسية</a></li>
-                <li><a href="#news">الأخبار</a></li>
-                <li><a href="dashboard.html" id="dashLink">إضافة خبر</a></li>
-                <li><a href="auth.html" id="authBtn">تسجيل دخول</a></li>
-            </ul>
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="بحث عن خبر...">
-                <i class="fas fa-search"></i>
-            </div>
-            <div class="menu-toggle" onclick="toggleMenu()">
-                <i class="fas fa-bars"></i>
-            </div>
-        </nav>
-    </header>
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+      <div class="modal-title" id="modalTitle"></div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <img id="modalImg" src="" alt="">
+    <div class="modal-prompt" id="modalPrompt"></div>
+    <div style="display:flex;gap:10px">
+      <button class="copy-btn" onclick="copyModalPrompt()" style="flex:1">📋 نسخ البرومبت</button>
+      <button class="copy-btn" onclick="closeModal()" style="flex:0.4">إغلاق</button>
+    </div>
+  </div>
+</div>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <h1>نبض ميت عقبة في مكان واحد</h1>
-            <p>تغطية شاملة لجميع أخبار الملكي على مدار الساعة</p>
-        </section>
+<div class="toast" id="toast">✅ تم النسخ!</div>
 
-        <div class="container">
-            <!-- Match Results -->
-            <section class="matches">
-                <h2 class="section-title">آخر المباريات</h2>
-                <div class="results-table">
-                    <div class="match-row">
-                        <span>الزمالك</span>
-                        <span class="score">2 - 0</span>
-                        <span>الأهلي</span>
-                        <span class="status">انتهت</span>
-                    </div>
-                </div>
-            </section>
+<script>
+const CATS = [
+  {id:'all',label:'🌟 الكل'},
+  {id:'cinematic',label:'🎬 سينمائي'},
+  {id:'fashion',label:'👗 أزياء'},
+  {id:'sea',label:'🌊 بحر'},
+  {id:'cars',label:'🚗 سيارات'},
+  {id:'animals',label:'🐾 حيوانات'},
+  {id:'fantasy',label:'🔮 فانتازيا'},
+  {id:'portrait',label:'🎨 بورتريه'},
+  {id:'architecture',label:'🏛️ معمار'},
+];
 
-            <!-- News Section -->
-            <section id="news" class="news-section">
-                <h2 class="section-title">آخر الأخبار</h2>
-                <div class="news-grid" id="newsGrid">
-                    <!-- Dynamic Content via JS -->
-                </div>
-            </section>
+const BASE_PROMPTS = [
+  {id:1,cat:'cinematic',title:'مشهد مطر ليلي',prompt:'cinematic scene, lone detective in rain-soaked alley at night, neon reflections on wet pavement, film noir, dramatic shadows, 35mm film grain, photorealistic, 8k'},
+  {id:2,cat:'cinematic',title:'غروب درامي',prompt:'epic cinematic sunset over mountains, silhouette of warrior, golden hour, volumetric fog, lens flare, Blade Runner 2049 color grade, 8k'},
+  {id:3,cat:'cinematic',title:'مدينة مستقبلية',prompt:'futuristic cyberpunk city at night, flying cars, holographic signs, rain-slicked streets, neon lights, cinematic composition, ultra detailed, 8k'},
+  {id:4,cat:'cinematic',title:'رائد الفضاء',prompt:'cinematic space scene, astronaut floating above earth, sun rising over planet curvature, photorealistic, Interstellar aesthetic, IMAX quality, 8k'},
+  {id:5,cat:'cinematic',title:'لقطة جوية صحراء',prompt:'cinematic aerial shot of ancient desert city, golden hour, dramatic shadows, sandstorm approaching, epic scale, drone photography, 8k'},
+  {id:6,cat:'cinematic',title:'حرب درامية',prompt:'cinematic war scene, soldier running through smoke-filled battlefield at dusk, dramatic backlighting, motion blur, gritty realistic, 8k'},
+  {id:7,cat:'cinematic',title:'قطار ليلي',prompt:'cinematic night train passing through mountain valley, light trails, stars above, foggy atmosphere, long exposure, dramatic composition, 8k'},
+  {id:8,cat:'cinematic',title:'مدينة غارقة',prompt:'cinematic flooded city, skyscrapers half submerged, dramatic sunset sky, eerie calm water reflections, post-apocalyptic atmosphere, 8k'},
+  {id:9,cat:'fashion',title:'فريق كرة ستايل',prompt:'fashion editorial, oversized vintage football jersey, Paris street, golden hour, film photography, Vogue style, 85mm portrait lens'},
+  {id:10,cat:'fashion',title:'أزياء راقية',prompt:'high fashion editorial, elegant flowing gown, marble palace, dramatic lighting, Helmut Newton style, black and white, ultra sharp'},
+  {id:11,cat:'fashion',title:'ستريت ستايل طوكيو',prompt:'street style fashion, Tokyo Harajuku, bold colorful outfit, candid shot, natural light, f/1.4 bokeh, film grain, editorial quality'},
+  {id:12,cat:'fashion',title:'أزياء صحراوية',prompt:'fashion editorial in Arabian desert, flowing white thobe, golden sand dunes, magic hour lighting, Vogue Arabia style, ultra sharp'},
+  {id:13,cat:'fashion',title:'لوك شتوي نيويورك',prompt:'winter fashion editorial, oversized coat and boots, snowy New York street, steam from manholes, moody atmosphere, editorial photography'},
+  {id:14,cat:'fashion',title:'أزياء بحرية',prompt:'fashion editorial on luxury yacht, Mediterranean blue water, elegant resort wear, natural light, sun-drenched colors, Slim Aarons inspired'},
+  {id:15,cat:'fashion',title:'فستان فراشة',prompt:'avant-garde fashion, butterfly wing inspired gown, ethereal studio photography, dramatic backlighting, artistic editorial, ultra detailed'},
+  {id:16,cat:'fashion',title:'ستايل عربي عصري',prompt:'modern Arab fashion editorial, contemporary abaya with bold print, Dubai cityscape background, golden hour, luxury fashion photography'},
+  {id:17,cat:'sea',title:'غروب على البحر',prompt:'breathtaking sunset over ocean, dramatic orange purple sky, calm water reflections, lone sailing boat silhouette, long exposure, 8k'},
+  {id:18,cat:'sea',title:'شعاب مرجانية',prompt:'underwater photography, tropical coral reef, vibrant fish shoal, sunlight rays through turquoise water, crystal clear, National Geographic quality'},
+  {id:19,cat:'sea',title:'عاصفة بحرية',prompt:'powerful ocean storm, massive waves crashing lighthouse, dark clouds, lightning, long exposure, ultra realistic, dramatic, 8k'},
+  {id:20,cat:'sea',title:'جزيرة المالديف',prompt:'Maldives paradise beach, crystal turquoise lagoon, overwater bungalow, white sand, sunset colors, drone aerial view, luxury travel photography'},
+  {id:21,cat:'sea',title:'ميناء قديم',prompt:'ancient Mediterranean harbor at dawn, fishing boats reflecting in still water, golden light, fog over water, timeless atmosphere, photorealistic'},
+  {id:22,cat:'sea',title:'موجات نورية',prompt:'bioluminescent waves at night, glowing blue ocean, long exposure, milky way reflected in water, magical atmosphere, ultra detailed'},
+  {id:23,cat:'sea',title:'خليج جبلي',prompt:'dramatic fjord landscape, turquoise water, steep cliffs, waterfall, misty morning atmosphere, Norway inspired, photorealistic, 8k'},
+  {id:24,cat:'sea',title:'غواص في الأعماق',prompt:'deep sea diver exploring shipwreck, mysterious underwater atmosphere, rays of light, colorful marine life, cinematic underwater photography'},
+  {id:25,cat:'cars',title:'موستانج كلاسيك',prompt:'1969 Ford Mustang Fastback, deep red paint, chrome details, empty desert highway at sunset, low angle shot, dramatic lighting, automotive photography'},
+  {id:26,cat:'cars',title:'فيراري في الجبال',prompt:'Ferrari SF90 Stradale on mountain road at dusk, motion blur, dramatic lighting, speed feeling, professional automotive photography'},
+  {id:27,cat:'cars',title:'سيارة مستقبلية',prompt:'futuristic electric hypercar, sleek design, glowing LED accents, dark studio background, reflective floor, product photography, ultra sharp'},
+  {id:28,cat:'cars',title:'لامبورغيني بالليل',prompt:'Lamborghini Aventador, neon city night reflections, wet street, light trails, cyberpunk atmosphere, low angle, ultra detailed, 8k'},
+  {id:29,cat:'cars',title:'لاند كروزر جبال',prompt:'Toyota Land Cruiser off-road in mountains, dust trail, dramatic sunset, adventure photography, action shot, ultra realistic'},
+  {id:30,cat:'cars',title:'رولز رويس خمر',prompt:'vintage Rolls Royce Silver Ghost, English countryside, morning mist, aristocratic atmosphere, warm tones, timeless, editorial photography'},
+  {id:31,cat:'cars',title:'سيارة سباق',prompt:'Formula 1 car pit stop, dramatic motion blur, crew in action, cinematic lighting, speed and precision, ultra detailed motorsport photography'},
+  {id:32,cat:'cars',title:'بوغاتي في دبي',prompt:'Bugatti Chiron on empty Dubai highway at night, city skyline background, light trails, luxury automotive photography, 8k'},
+  {id:33,cat:'animals',title:'أسد ملكي',prompt:'majestic lion portrait, golden savanna background, sunset backlight, mane blowing in wind, intense gaze, National Geographic quality, 8k'},
+  {id:34,cat:'animals',title:'نمر في الغابة',prompt:'Bengal tiger walking through jungle, golden light filtering through trees, intense eyes, National Geographic style, ultra detailed, 8k'},
+  {id:35,cat:'animals',title:'حصان عربي',prompt:'Arabian horse galloping on beach at sunset, mane flowing in wind, golden light, water splash, majestic, equine photography, ultra detailed'},
+  {id:36,cat:'animals',title:'صقر بورتريه',prompt:'peregrine falcon portrait, extreme close-up, sharp feather detail, intense yellow eye, natural light, ultra sharp, 8k wildlife photography'},
+  {id:37,cat:'animals',title:'حوت مبهر',prompt:'humpback whale breaching at sunset, dramatic composition, ocean spray, golden light, National Geographic quality, 8k'},
+  {id:38,cat:'animals',title:'ذئب تحت القمر',prompt:'lone wolf howling on mountain peak under full moon, dramatic night sky, stars, epic landscape, cinematic composition, fantasy realism'},
+  {id:39,cat:'animals',title:'فيل في الغروب',prompt:'African elephant silhouette at sunset, acacia trees, dramatic orange sky, wide savanna, epic wildlife photography, 8k'},
+  {id:40,cat:'animals',title:'نسر يحلق',prompt:'bald eagle soaring above snowy mountains, dramatic sky, powerful wings spread, ultra sharp, National Geographic quality wildlife photography'},
+  {id:41,cat:'fantasy',title:'قلعة طائرة',prompt:'floating castle above clouds, waterfalls flowing off edges, magical light, lush gardens, Studio Ghibli inspired, ultra detailed, 8k'},
+  {id:42,cat:'fantasy',title:'تنين ناري',prompt:'majestic dragon flying over ancient ruins at sunset, fire breathing, dramatic scale, photorealistic scales, epic fantasy, 8k'},
+  {id:43,cat:'fantasy',title:'غابة سحرية',prompt:'enchanted forest at night, glowing mushrooms, fireflies, mystical fog, giant ancient trees, magical atmosphere, fairy tale aesthetic'},
+  {id:44,cat:'fantasy',title:'أتلانتس',prompt:'underwater ancient city Atlantis ruins, shafts of light, schools of exotic fish, coral on columns, mystical atmosphere, cinematic, 8k'},
+  {id:45,cat:'fantasy',title:'فارس أسطوري',prompt:'epic knight in golden armor on white horse, storm clouds breaking with light, dramatic backlight, fantasy realism, Artstation quality'},
+  {id:46,cat:'fantasy',title:'جزيرة عائمة',prompt:'floating sky island, tropical waterfall, ancient temple ruins, rainbow in mist, ethereal clouds, ultra detailed fantasy landscape, 8k'},
+  {id:47,cat:'fantasy',title:'ساحرة قديمة',prompt:'ancient sorceress casting spell, glowing magic circles, dramatic dark atmosphere, flowing robes, mystical forest, fantasy art, 8k'},
+  {id:48,cat:'fantasy',title:'مدينة من الكريستال',prompt:'crystal city floating in the sky, prismatic light refractions, ethereal atmosphere, architectural fantasy, ultra detailed concept art, 8k'},
+  {id:49,cat:'portrait',title:'بورتريه سينمائي',prompt:'cinematic portrait of elderly man with weathered face, intense eyes, dramatic Rembrandt lighting, dark background, ultra sharp, 8k, photorealistic'},
+  {id:50,cat:'portrait',title:'بورتريه فني',prompt:'artistic portrait, woman with flowers in hair, Renaissance painting style, soft natural light, shallow depth of field, museum quality'},
+  {id:51,cat:'portrait',title:'بورتريه بدوي',prompt:'portrait of Bedouin elder, traditional keffiyeh, deep desert background, golden hour lighting, weathered skin texture, National Geographic style'},
+  {id:52,cat:'portrait',title:'بورتريه ليلي',prompt:'night portrait, young woman, city lights bokeh background, street lamp lighting, moody atmosphere, film photography aesthetic, grain'},
+  {id:53,cat:'portrait',title:'بورتريه أطفال',prompt:'portrait of child laughing, natural outdoor light, sun in hair, carefree joy, 85mm f/1.2 bokeh, lifestyle photography, ultra sharp'},
+  {id:54,cat:'portrait',title:'موسيقي على المسرح',prompt:'musician portrait, dramatic stage lighting, concert atmosphere, motion blur on hands, emotional performance, editorial photography'},
+  {id:55,cat:'portrait',title:'رياضي احترافي',prompt:'professional athlete portrait, dramatic sports photography, dynamic pose, dramatic lighting, sweat detail, ultra sharp, 8k'},
+  {id:56,cat:'portrait',title:'عجوز حكيم',prompt:'wise elder portrait, deep wrinkles telling stories, kind eyes, warm side lighting, black and white, ultra detailed, timeless photograph'},
+  {id:57,cat:'architecture',title:'قصر إسلامي',prompt:'Islamic palace architecture, intricate geometric patterns, golden mosaics, ornate arches, sunset light, ultra detailed, 8k photorealistic'},
+  {id:58,cat:'architecture',title:'برج مستقبلي',prompt:'futuristic skyscraper, organic flowing design, glass and steel, dramatic cloudy sky, wide angle architecture photography, ultra detailed'},
+  {id:59,cat:'architecture',title:'مسجد في الغروب',prompt:'grand mosque at sunset, golden domes and minarets, silhouette against dramatic sky, reflections in fountain, ethereal atmosphere'},
+  {id:60,cat:'architecture',title:'فيلا على الماء',prompt:'luxury villa over turquoise water, minimalist modern design, infinity pool, tropical garden, golden hour, architectural photography'},
+  {id:61,cat:'architecture',title:'أطلال رومانية',prompt:'ancient Roman ruins at golden hour, dramatic shadows, wildflowers through marble, timeless atmosphere, editorial photography, ultra detailed'},
+  {id:62,cat:'architecture',title:'مدينة منحوتة في الصخر',prompt:'magical medieval city carved into cliffside, waterfalls, bridges, warm lights at dusk, fantasy realism, ultra detailed concept art, 8k'},
+  {id:63,cat:'architecture',title:'رياض مغربي',prompt:'Moroccan riad courtyard, intricate mosaic tiles, central fountain, warm afternoon light, detailed Islamic patterns, architectural photography'},
+  {id:64,cat:'architecture',title:'معبد ياباني',prompt:'Japanese pagoda in autumn, red maple trees, misty morning, serene zen atmosphere, traditional architecture, ultra detailed photography'},
+];
+
+// Generate additional prompts
+const EXTRA_BANK = {
+  cinematic:['dark fantasy forest with ancient ruins, dramatic god rays, ultra realistic, 8k','abandoned space station interior, floating debris, dramatic lighting, sci-fi atmosphere, photorealistic','underwater city ruins at dusk, dramatic light shafts, photorealistic, 8k cinematic','volcanic eruption at night, lava flows, dramatic red sky, epic natural disaster photography','arctic aurora borealis over icy lake, perfect reflection, long exposure, magical atmosphere'],
+  fashion:['editorial fashion shoot in Tokyo alley, rain, reflections, dark moody aesthetic','fashion portrait with dramatic smoke and colored gels, abstract editorial photography','luxury jewelry macro photography, dramatic lighting, ultra sharp, product photography','vintage 1950s fashion editorial, retro aesthetic, film grain, warm tones, Vogue style','futuristic fashion editorial, metallic fabrics, sci-fi aesthetic, dramatic studio lighting'],
+  sea:['sea cave with glowing blue water, magical light, photorealistic, long exposure, 8k','tropical fish eye view above water, split shot photography, ultra clear water, Caribbean','ancient submarine volcano erupting underwater, dramatic light show, nature photography','dawn over misty ocean, lone fisherman, silhouette, peaceful atmosphere, film photography','sea of clouds from mountain top, dramatic sunrise, ethereal landscape photography'],
+  cars:['classic car collection in vintage garage, warm workshop lighting, nostalgic atmosphere','hypercar drag racing, dramatic motion blur, speed feeling, automotive photography','luxury SUV on arctic road trip, aurora borealis above, adventure photography','concept car on futuristic bridge at night, rain reflections, product photography','vintage VW Beetle in flower field, cheerful colors, lifestyle photography'],
+  animals:['snow leopard in mountain snow, ultra sharp fur detail, elusive wildlife photography','gorilla family in morning mist, intimate wildlife photography, National Geographic','school of dolphins jumping at sunrise, playful, golden light, ocean photography','red fox in autumn forest, warm colors, magical atmosphere, wildlife photography','baby elephant playing in water, joyful, golden savanna light, ultra detailed'],
+  fantasy:['steampunk city with airships, brass and copper aesthetic, dramatic atmosphere, concept art','forest spirit emerging from ancient tree, magical bioluminescence, fantasy art, 8k','underwater dragon sleeping on sunken treasure, epic fantasy, photorealistic, 8k','ancient oracle temple with mystical fire, dramatic lighting, fantasy realism','celestial library floating among stars, infinite books, magical light, concept art'],
+  portrait:['street musician in rain, emotional, film photography, documentary style, 8k','fisherman at dawn mending nets, weathered hands, golden light, timeless portrait','ballet dancer mid-leap, dramatic stage lighting, motion, artistic photography','portrait in traditional attire from around the world series, cultural documentary photography','protest leader portrait, dramatic emotion, decisive moment, photojournalism'],
+  architecture:['Alhambra palace detail at golden hour, intricate tilework, dramatic shadows','brutalist concrete cathedral interior, dramatic light shafts, architectural photography','bamboo forest temple in Japan, early morning light, peaceful, ultra detailed','Swiss mountain chalet in winter, snow-covered, warm interior lights, cozy atmosphere','futuristic library interior, massive glass dome, floating books effect, architectural marvel'],
+};
+
+let idCounter = 65;
+const ALL_PROMPTS = [...BASE_PROMPTS];
+const cats = ['cinematic','fashion','sea','cars','animals','fantasy','portrait','architecture'];
+for(let round=0; round<15; round++){
+  cats.forEach(cat=>{
+    const bank = EXTRA_BANK[cat];
+    const idx = round % bank.length;
+    ALL_PROMPTS.push({
+      id: idCounter++,
+      cat,
+      title: `برومبت ${cat} #${round+1}`,
+      prompt: bank[idx] + ', photorealistic, ultra detailed, masterpiece, best quality'
+    });
+  });
+}
+
+let currentCat = 'all';
+let searchQuery = '';
+let generatingIds = new Set();
+let generatedImages = {};
+let modalId = null;
+
+function init(){
+  buildFilters();
+  renderGrid();
+  document.getElementById('totalCount').textContent = ALL_PROMPTS.length + '+';
+}
+
+function buildFilters(){
+  document.getElementById('filters').innerHTML = CATS.map(c=>
+    `<button class="filter-btn ${c.id==='all'?'active':''}" data-cat="${c.id}" onclick="setFilter('${c.id}')">${c.label}</button>`
+  ).join('');
+}
+
+function setFilter(cat){
+  currentCat = cat;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.toggle('active',b.dataset.cat===cat));
+  renderGrid();
+}
+
+function getFiltered(){
+  return ALL_PROMPTS.filter(p=>{
+    const mc = currentCat==='all' || p.cat===currentCat;
+    const ms = !searchQuery || p.prompt.toLowerCase().includes(searchQuery) || p.title.includes(searchQuery);
+    return mc && ms;
+  });
+}
+
+const CAT_ICONS = {cinematic:'🎬',fashion:'👗',sea:'🌊',cars:'🚗',animals:'🐾',fantasy:'🔮',portrait:'🎨',architecture:'🏛️'};
+const CAT_NAMES = {cinematic:'سينمائي',fashion:'أزياء',sea:'بحر',cars:'سيارات',animals:'حيوانات',fantasy:'فانتازيا',portrait:'بورتريه',architecture:'معمار'};
+
+function renderGrid(){
+  const grid = document.getElementById('grid');
+  const items = getFiltered().slice(0,64);
+  if(!items.length){
+    grid.innerHTML = `<div class="empty"><div class="big">🔍</div><div>مش لاقي برومبتات</div></div>`;
+    return;
+  }
+  grid.innerHTML = items.map((p,i)=>{
+    const delay = (i%16)*0.04;
+    const hasImg = generatedImages[p.id];
+    const loading = generatingIds.has(p.id);
+    return `
+    <div class="card" style="animation-delay:${delay}s">
+      <div class="img-container">
+        ${hasImg
+          ? `<img class="card-img" src="${hasImg}" alt="${p.title}" onclick="openModal(${p.id})" onerror="this.style.display='none'">`
+          : `<div class="img-placeholder">${loading?`<div class="spinner"></div><div>جاري التوليد...</div>`:`<div class="icon">🎨</div><div>اضغط لتوليد الصورة</div>`}</div>`}
+        <button class="gen-btn" onclick="generateImage(${p.id})" ${loading?'disabled':''}>
+          ${loading?'⏳ جاري...' : hasImg?'🔄 ولّد جديد':'✨ ولّد الصورة'}
+        </button>
+      </div>
+      <div class="card-body">
+        <div class="card-cat">${CAT_ICONS[p.cat]||'✨'} ${CAT_NAMES[p.cat]||p.cat}</div>
+        <div class="card-prompt">${p.prompt}</div>
+        <div class="card-actions">
+          <button class="copy-btn" id="copy-${p.id}" onclick="copyPrompt(${p.id})">📋 نسخ</button>
+          ${hasImg?`<button class="copy-btn" onclick="openModal(${p.id})">🔍 تكبير</button>`:''}
         </div>
-    </main>
+      </div>
+    </div>`;
+  }).join('');
+}
 
-    <footer>
-        <p>جميع الحقوق محفوظة &copy; أخبار الزمالك 2024</p>
-    </footer>
+async function generateImage(id){
+  const p = ALL_PROMPTS.find(x=>x.id===id);
+  if(!p||generatingIds.has(id)) return;
+  generatingIds.add(id);
+  renderGrid();
+  try {
+    const encoded = encodeURIComponent(p.prompt);
+    const url = `https://image.pollinations.ai/prompt/${encoded}?width=512&height=512&nologo=true&seed=${Math.floor(Math.random()*9999)}`;
+    // Pre-load image
+    await new Promise((res,rej)=>{
+      const img = new Image();
+      img.onload = res;
+      img.onerror = rej;
+      img.src = url;
+      setTimeout(res, 15000); // timeout fallback
+    });
+    generatedImages[id] = url;
+  } catch(e) {
+    const encoded = encodeURIComponent(p.prompt);
+    generatedImages[id] = `https://image.pollinations.ai/prompt/${encoded}?width=512&height=512&nologo=true`;
+  }
+  generatingIds.delete(id);
+  renderGrid();
+}
 
-    <!-- Firebase Scripts -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
-    <script src="app.js"></script>
+function copyPrompt(id){
+  const p = ALL_PROMPTS.find(x=>x.id===id);
+  if(!p) return;
+  navigator.clipboard.writeText(p.prompt);
+  const btn = document.getElementById(`copy-${id}`);
+  if(btn){ btn.textContent='✅ تم!'; btn.classList.add('copied'); setTimeout(()=>{btn.textContent='📋 نسخ';btn.classList.remove('copied')},2000); }
+}
+
+function openModal(id){
+  const p = ALL_PROMPTS.find(x=>x.id===id);
+  if(!p||!generatedImages[id]) return;
+  modalId = id;
+  document.getElementById('modalTitle').textContent = p.title;
+  document.getElementById('modalImg').src = generatedImages[id];
+  document.getElementById('modalPrompt').textContent = p.prompt;
+  document.getElementById('modal').classList.add('open');
+}
+
+function closeModal(){ document.getElementById('modal').classList.remove('open'); }
+
+function copyModalPrompt(){
+  const p = ALL_PROMPTS.find(x=>x.id===modalId);
+  if(!p) return;
+  navigator.clipboard.writeText(p.prompt);
+  showToast();
+}
+
+function showToast(){
+  const t = document.getElementById('toast');
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2500);
+}
+
+document.getElementById('searchInput').addEventListener('input',e=>{
+  searchQuery = e.target.value.toLowerCase();
+  renderGrid();
+});
+
+document.getElementById('modal').addEventListener('click',e=>{ if(e.target===e.currentTarget) closeModal(); });
+
+init();
+</script>
 </body>
 </html>
